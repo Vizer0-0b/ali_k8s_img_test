@@ -10,12 +10,12 @@ RUN ls -la
 RUN dotnet restore 
 RUN dotnet build --no-restore -c Release -o ./out
 
-Workdir /out
+Workdir ./out
 RUN ls -la
 
 FROM build AS publish
 RUN mkdir ./release
-Workdir .
+Workdir porj
 RUN dotnet publish --no-restore -c Release -o ./release
 
 Workdir ./release
