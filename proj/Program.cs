@@ -67,7 +67,7 @@ namespace ali_k8s_img_test
             string filename = Path.GetFileName(ctx.Request.RawUrl);
             string userName = HttpUtility.ParseQueryString(filename).Get("userName");//避免中文乱码
             //进行处理
-            Console.WriteLine("收到数据:" + userName);
+            Console.WriteLine("[Dev]收到数据:" + userName);
             
             //接收POST参数
             Stream stream = ctx.Request.InputStream;
