@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 COPY /ali_k8s_img_test/ .
-Workdir ali_k8s_img_test
+Workdir /ali_k8s_img_test
 RUN chmod 777 .
 RUN mkdir out
 RUN ls -la
