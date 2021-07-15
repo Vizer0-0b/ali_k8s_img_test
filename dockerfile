@@ -10,6 +10,7 @@ Workdir ./out
 RUN ls -la
 
 FROM build AS publish
+COPY . .
 Workdir proj
 RUN ls -la
 RUN chmod 777 .
