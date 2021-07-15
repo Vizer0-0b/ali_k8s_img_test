@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 RUN ls -la
 COPY . .
 RUN ls -la
-Workdir .
+Workdir proj
 RUN ls -la
 RUN chmod 777 .
 RUN mkdir ./out
