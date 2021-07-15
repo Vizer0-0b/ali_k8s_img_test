@@ -14,8 +14,8 @@ Workdir ./out
 RUN ls -la
 
 FROM build AS publish
-RUN mkdir ./release
 Workdir porj
+RUN mkdir ./release
 RUN dotnet publish --no-restore -c Release -o ./release
 
 Workdir ./release
