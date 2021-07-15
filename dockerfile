@@ -1,4 +1,5 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+RUN mkdir ali_k8s_img_test
 COPY /ali_k8s_img_test/ .
 Workdir /ali_k8s_img_test
 RUN chmod 777 .
