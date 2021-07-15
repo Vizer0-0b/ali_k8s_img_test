@@ -14,8 +14,11 @@ Workdir ./out
 RUN ls -la
 
 FROM build AS publish
-Workdir porj
+RUN ls -la
+RUN chmod 777 .
 RUN mkdir ./release
+RUN ls -la
+RUN dotnet restore 
 RUN dotnet publish --no-restore -c Release -o ./release
 
 Workdir ./release
