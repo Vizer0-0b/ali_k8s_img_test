@@ -24,4 +24,4 @@ RUN ls -la
 
 EXPOSE 30000
 
-ENTRYPOINT ["dotnet", "ali_k8s_img_test.dll"]
+ENTRYPOINT ["dotnet", "ali_k8s_img_test.dll", "--server.urls", "http://0.0.0.0:30000"]
