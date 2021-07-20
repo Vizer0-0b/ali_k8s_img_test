@@ -22,6 +22,6 @@ RUN dotnet publish --no-restore -c Release -o ./release
 Workdir ./release
 RUN ls -la
 
-EXPOSE 80
+EXPOSE 30000
 
 ENTRYPOINT ["dotnet", "ali_k8s_img_test.dll"]
