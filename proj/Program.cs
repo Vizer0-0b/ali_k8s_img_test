@@ -19,7 +19,7 @@ namespace ali_k8s_img_test
                 try
                 {
                     listerner.AuthenticationSchemes = AuthenticationSchemes.Anonymous;//指定身份验证 Anonymous匿名访问
-                    listerner.Prefixes.Add("http://127.0.0.1:30000/");
+                    listerner.Prefixes.Add("http://*:30000/");
                     listerner.Start();
                 }
                 catch (Exception ex)
