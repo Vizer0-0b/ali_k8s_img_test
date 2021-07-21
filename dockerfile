@@ -2,26 +2,21 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 COPY . .
 Workdir proj
 RUN chmod 777 .
-RUN mkdir ./out
+RUN mkdir ./build
 RUN dotnet restore 
-RUN dotnet build --no-restore -c Release -o ./out
+RUN dotnet build --no-restore -c Release -o ./build
 
-Workdir ./out
-RUN ls -la
+RUN echo " ☆☆☆ build folder ☆☆☆ "
+RUN ls -la ./build
 
 FROM build AS publish
-COPY . .
-Workdir proj
-RUN ls -la
-RUN chmod 777 .
-RUN mkdir ./release
-RUN ls -la
+RUN mkdir ./publish
 RUN dotnet restore 
-RUN dotnet publish --no-restore -c Release -o ./release
+RUN dotnet publish --no-restore -c Release -o ./publish
 
-Workdir ./release
-RUN ls -la
+RUN echo " ☆☆☆ publish folder ☆☆☆ "
+RUN ls -la ./publish
 
 EXPOSE 30000
 
-ENTRYPOINT ["dotnet", "ali_k8s_img_test.dll", "--server.urls", "http://0.0.0.0:30000"]
+ENTRYPOINT ["dotnet", "ali_k8s_img_test.dll"]
