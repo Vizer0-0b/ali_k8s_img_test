@@ -19,4 +19,4 @@ RUN ls -la ./publish
 
 EXPOSE 30000
 
-ENTRYPOINT ["dotnet", "ali_k8s_img_test.dll"]
+ENTRYPOINT ["publish/dotnet", "ali_k8s_img_test.dll"]
