@@ -14,7 +14,7 @@ RUN mkdir ./publish
 RUN dotnet restore 
 RUN dotnet publish --no-restore -c Release -o ./publish
 
-RUN echo " ☆☆☆ publish folder ☆☆☆ "
+RUN echo " ★★★ publish folder ★★★ "
 RUN ls -la ./publish
 
 EXPOSE 30000
