@@ -60,27 +60,19 @@ namespace ali_k8s_img_test
 
             ctx.Response.StatusCode = 200;//设置返回给客服端http状态代码
 
-            //接收Get参数
-            string type = ctx.Request.QueryString["type"];
-            string userId = ctx.Request.QueryString["userId"];
-            string password = ctx.Request.QueryString["password"];
-            string filename = Path.GetFileName(ctx.Request.RawUrl);
-            string userName = HttpUtility.ParseQueryString(filename).Get("userName");//避免中文乱码
             //进行处理
-            Console.WriteLine("[Dev]收到数据:" + userName);
-            
+            Console.WriteLine("[Dev]收到数据");
+
             //接收POST参数
             Stream stream = ctx.Request.InputStream;
             System.IO.StreamReader reader = new System.IO.StreamReader(stream, Encoding.UTF8);
             String body = reader.ReadToEnd();
-            Console.WriteLine("收到POST数据:" + HttpUtility.UrlDecode(body));
-            Console.WriteLine("解析:" + HttpUtility.ParseQueryString(body).Get("userName"));
 
             //使用Writer输出http响应代码,UTF8格式
-            using (StreamWriter writer = new StreamWriter(ctx.Response.OutputStream,Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter(ctx.Response.OutputStream, Encoding.UTF8))
             {
-                writer.Write("处理结果,Hello world<br/>");
-                writer.Write("数据是userId={0},userName={1}", userId, userName);
+                writer.Write("测试正常");
+                writer.Write("ENV={0}", AppSettings.Instance.GetByKey("Env:Type"));
                 writer.Close();
                 ctx.Response.Close();
             }
